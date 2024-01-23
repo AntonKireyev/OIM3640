@@ -40,4 +40,6 @@ print("Your annual pay is: $" + str(annual_pay))
 For Weekly pay, need to know the hourly rate and the hours worked per week.
 For Monthly pay, take the weekly pay and multiply it by the number of full weeks per month (4).
 For Annual pay, take the weekly pay and multiply it by the number of weeks worked in a year.
+
+This section calculates the weekly, monthly, and annual pay, then displays it for the user.
 """
