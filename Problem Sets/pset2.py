@@ -2,7 +2,6 @@
 Givens: 50 weeks per year, $24 Hourly Wage, 40 Hours per week
 """
 # Variables
-
 weekly_hours = 40
 hourly_wage = 24
 weeks_per_year = 50
