@@ -65,7 +65,10 @@ len(greeting)
 
 for index in range(len(greeting)):
     print(f"{index:<10}{greeting[index]}")
-    
-# We can define two letters
+
+# We can define two variables, enumerate combines range/len
 for index, letter in enumerate(greeting):
     print(f"{index:<10}{letter}")
+
+for x in range(5):
+    print(f"{x}")
