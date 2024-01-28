@@ -1,7 +1,7 @@
 ''' Gold Dollar Price Equivalent Calculator
 
 Author: Anton Kireyev
-Date: 1/27/2024
+Date: 1/30/2024
 
 Convert weight of gold in pounds and ounces to grams and kilograms, then calculate the price.
 User enters the number of pounds and ounces. Output the total weight in grams and kilograms, the total value, and unit prices
