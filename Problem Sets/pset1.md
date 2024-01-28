@@ -17,7 +17,6 @@ x = 1
 Both Integers, y/x is a float because division yields a float value.
 
 ### Show an example of converting a string into an integer. 
-<code> 
 In [12]: a = "44"
 
 In [13]: type(a)
@@ -27,10 +26,8 @@ In [14]: a = int(a)
 
 In [15]: type(a)
 Out[15]: int
-</code>
 
 ### Show an example of converting a float into a string. 
-<code>
 In [16]: b = 10/2
 
 In [17]: type(b)
@@ -40,5 +37,4 @@ In [18]: b = "b"
 
 In [19]: type(b)
 Out[19]: str
-</code>
 
