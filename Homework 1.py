@@ -25,7 +25,7 @@ total_ounces = grams / 28.35
 total_cost = GRAM_COST * grams
 
 # Output
-print(f"\n" f"The total weight is {grams:.2f} grams ({kilograms:.2f} kilograms).")
+print(f"\n" f"The total weight is {grams:.2f} grams ({kilograms:.2f} kilograms).")      # Use f"\n" to push text to new line
 print(f"The total cost of {total_ounces:.1f} ounces of gold is ${total_cost:.2f}")
 print(f"\n" f"Cost per ounce: ${OUNCE_COST:.1f}")
 print(f"Cost per gram: ${GRAM_COST:.1f}")
