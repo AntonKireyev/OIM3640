@@ -99,3 +99,10 @@ print(today.strftime("%A %B %d %Y"))    # string formatting
 today.year
 today.month
 today.day
+
+import datetime
+today = datetime.date.today()
+today.strftime("%m %d %Y") 
+
+import random
+print(random.normalvariate())
