@@ -23,4 +23,3 @@ print("QUICK HIT THE ENTER KEY GO GO GO GO GO GO")
 start = time.time()
 input()
 print(f"That was fast. It took you {time.time() - start:.3f} to hit enter")
-
