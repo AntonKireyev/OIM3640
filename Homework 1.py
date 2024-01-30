@@ -1,13 +1,11 @@
 ''' Gold Dollar Price Equivalent Calculator
 
 Author: Anton Kireyev
-Date: 1/30/2024
+File Created: 1/27/2024
 
 Convert weight of gold in pounds and ounces to grams and kilograms, then calculate the price.
 User enters the number of pounds and ounces. Output the total weight in grams and kilograms, the total value, and unit prices
-1 ounce = 28.35 grams
-1 pound = 453.59 grams
-Sample Run: Assumes SPOT price of gold is $1868.40 per ounce
+1 ounce = 28.35 grams, 1 pound = 453.59 grams, Sample Run: Assumes SPOT price of gold is $1868.40 per ounce
 '''
 
 # Get Variables
