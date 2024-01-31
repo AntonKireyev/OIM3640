@@ -15,6 +15,7 @@ import random
 rolls = int(input("how many rolls: "))
 dice = [1,2,3,4,5,6]
 
+'''
 two = 0
 three = 0
 four = 0
@@ -26,6 +27,7 @@ nine = 0
 ten = 0
 eleven = 0
 twelve = 0
+'''
 
 # print # of dice rolls defined by user
 for iteration in range(rolls):
@@ -33,8 +35,7 @@ for iteration in range(rolls):
     d2 = random.choice(dice)
     dsum = d1 + d2
     print(f"{iteration:<10}{d1} + {d2} = {dsum}")
-    
-    if dsum = 2:
-        two += 1
+
+   
     
 
