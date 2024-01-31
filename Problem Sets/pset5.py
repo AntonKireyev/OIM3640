@@ -5,18 +5,11 @@ and how many times in the simulation that total was "rolled".
 The program will then output each possible roll total and the number of times it occurred as a pipe or other symbol.  
 Allows a user to specify how many rolls to simulate.  
 '''
+# Import libraries and define variables
 import math
 import random
-
-intro = "Welcome to the dice rolling simulator\nGet ready to roll dem bones!\nHow many rolls should we simulate?\n\n"
-
-user_input = input(intro)
-
-rolls = math.floor(float(user_input))
 dice = [1,2,3,4,5,6]
-
 COUNTER = "*"
-
 Twos = ""
 Threes = ""
 Fours = ""
@@ -28,6 +21,10 @@ Nines = ""
 Tens = ""
 Elevens = ""
 Twelves = ""
+
+# Welcome Message and user input
+intro = "Welcome to the dice rolling simulator\nGet ready to roll dem bones!\nHow many rolls should we simulate?\n\n"
+rolls = math.floor(float(input(intro)))     # Accounts for non-integer inputs, but not for non-numerical or negative inputs
 
 # simulate # of dice rolls defined by user and adjust COUNTERs
 for iteration in range(rolls):
