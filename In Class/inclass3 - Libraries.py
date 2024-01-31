@@ -1,5 +1,5 @@
 # Python Libraries
-'''
+
 # time
 import time
 time.sleep(1)
@@ -41,7 +41,7 @@ math.e      # eulers's constant
 math.floor(5 / 2)
 math.ceil(5 / 2)
 4 ** 0.5        #sqrt
-math.sqrt(4) '''
+math.sqrt(4)
 
 # Simulate stock price
 from math import exp, sqrt
@@ -82,10 +82,10 @@ std = sqrt(var)
 print(f"{var:,.2f}")
 print(f"{std:,.2f}")
 # Polymorphism
-'''len("hello")
+len("hello")
 max("hello")
 ord('o')        # uppercase will get you a smaller value than lowercase
-'''
+
 
 # Date Time
 import datetime as dt
