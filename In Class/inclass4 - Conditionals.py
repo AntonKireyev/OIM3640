@@ -44,3 +44,44 @@ if value[0].isnumeric() or value[0] == "-":     # testing to see if the first di
         print("That's ZERO!")
 else:
     print("That's not a number!")
+
+
+# Changing Iteration
+# Continue, break, Pass
+
+for vowel in 'aeiou':
+    print(vowel)
+
+value = input('enter a vowel')
+if value in 'aeiou':
+    print("that's a vowel")
+print("goodbye!")
+
+value = input('enter a vowel')
+if value.lower() in 'aeiou':        # use .lower() to account for uppercase
+    print("that's a vowel")
+print("goodbye!")
+
+for value in range(10):
+    if value % 3:
+        print(value)
+    else:
+        continue        # Continue - skips an iteration of the loop
+
+for value in range(10):
+    if value % 3:
+        continue
+    else:
+        print(value)
+
+for value in range(10):
+    if value % 3:
+        break           # Break kills the loop
+    else:
+        print(value)
+
+if True:
+    pass                # placeholder 
+else:
+    pass
+
