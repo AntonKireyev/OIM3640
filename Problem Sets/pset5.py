@@ -1,6 +1,6 @@
-''' Dice Rolling Simulator
+''' DICE Rolling Simulator
 
-A program that simulates rolling two dice and keeps track of the total of each roll, 
+A program that simulates rolling two DICE and keeps track of the total of each roll, 
 and how many times in the simulation that total was "rolled".  
 The program will then output each possible roll total and the number of times it occurred as a pipe or other symbol.  
 Allows a user to specify how many rolls to simulate.  
@@ -8,7 +8,7 @@ Allows a user to specify how many rolls to simulate.
 # Import libraries and define variables
 import math
 import random
-dice = [1,2,3,4,5,6]
+DICE = [1,2,3,4,5,6]
 COUNTER = "*"
 Twos = ""
 Threes = ""
@@ -23,13 +23,13 @@ Elevens = ""
 Twelves = ""
 
 # Welcome Message and user input
-intro = "Welcome to the dice rolling simulator\nGet ready to roll dem bones!\nHow many rolls should we simulate?\n\n"
+intro = "Welcome to the DICE rolling simulator\nGet ready to roll dem bones!\nHow many rolls should we simulate?\n\n"
 rolls = math.floor(float(input(intro)))     # Accounts for non-integer inputs, but not for non-numerical or negative inputs
 
-# simulate # of dice rolls defined by user and adjust COUNTERs
+# simulate # of DICE rolls defined by user and adjust COUNTERs
 for iteration in range(rolls):
-    d1 = random.choice(dice)
-    d2 = random.choice(dice)
+    d1 = random.choice(DICE)
+    d2 = random.choice(DICE)
     dsum = d1 + d2
     if dsum == 2:
         Twos += COUNTER
