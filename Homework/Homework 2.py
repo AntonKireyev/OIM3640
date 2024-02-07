@@ -17,47 +17,54 @@ solution more efficiently.
 import numpy_financial as npf
 
 # Variables / Inputs
-# Lists for Calculations
-i_payments = []
-p_payments = []
+i_payments = 0
+p_payments = 0
+DIV = "-" * 80
 
 
 # Sample / manual selector
-mode = input("type S for sample or M for manual input: ")
+print("Welcome to the Loan Amortizer \n")
+mode = input("type S for sample or M for manual input: ")       # Mode Selector
 while mode not in "SM":
     mode = input("type S for sample or M for manual input: ")
+
+timescale = input("[M]onthly or [A]nnual Report: ")        # Annual/Monthly Selector
+while timescale not in "AM":
+    timescale = input("[M]onthly or [A]nnual Report: ")
 
 if mode == "S":
     balance = 360000   # In Dollars
     loan_time = 360     # In Months
-    int_rate = 2.4/100       # Annual Rate in %
+    int_percent = 2.4       # Annual Rate in %
     monthly_pmnt = 2000    # Monthly payment in Dollars
+    intro = f"{'Balance:':<28}${balance:>15,.2f}\n{'Length of Loan in Months:':<28}{loan_time:>15,}\n{'Annual interest Rate:':<28}{int_percent:>15,.2f}\n{'Monthly Payment:':<28}${monthly_pmnt:>15,.2f}\n"
+    print(intro)
 
 if mode == "M":
-    balance = input("Balance: ")
-    loan_time = input("Loan length in months: ")
-    int_rate = input("Annual Interest Rate: ")/100
-    monthly_pmnt = input("Monthly Payment: ")
+    balance = float(input("Balance: "))
+    loan_time = float(input("Loan length in months: "))
+    int_percent = float(input("Annual Interest Rate: "))
+    monthly_pmnt = float(input("Monthly Payment: "))
 
 # Logic / Conversions
 yearly_pmnt = monthly_pmnt * 12
+int_rate = int_percent / 100
 year_total = loan_time/12
 
 # Payment Amounts
 header = f"{'Year':<10}{'Principal':<15}{'Interest':<15}{'Payment':<15}{'Remaining Balance':<15}"
-div = "=" * 80
 print(header)
-print(div)
+print(DIV)
 
 for count in range(int(loan_time / 12)):
-    year = count+1      # count years
+    year = count + 1      # count years
    
     # Payments
     i_payment = abs(npf.ipmt(int_rate, year, year_total, balance))
     p_payment = yearly_pmnt - i_payment
 
-    i_payments.append(i_payment)
-    p_payments.append(p_payment)
+    i_payments += i_payment
+    p_payments += p_payment
 
     # Calculate Remaining balance
     balance -= p_payment
@@ -69,5 +76,10 @@ for count in range(int(loan_time / 12)):
     else:
         pass
 
+    if balance <= 0:
+        break
+
 # Footer
-    
+footer = f"{'Total:':<9}$ {i_payments:<13,.2f}$ {p_payments:<13,.2f}$ {i_payments + p_payments:<13,.2f}"
+print(DIV)
+print(footer)
