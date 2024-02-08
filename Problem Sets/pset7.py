@@ -1,11 +1,4 @@
 ''' Problem Set 7
-Consider the following text: 
-
-Darkness at the break of noon  
-Shadows even the silver spoon  
-The handmade blade, the child's balloon  
-Eclipses both the sun and moon
-
 1. Write a script that transforms each word into pig Latin and prints the result. 
 
 Pig Latin Rules:
