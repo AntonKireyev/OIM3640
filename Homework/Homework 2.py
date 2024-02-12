@@ -24,12 +24,12 @@ DIV = "-" * 80
 
 # Sample / manual selector
 print("Welcome to the Loan Amortizer \n")
-mode = input("type S for sample or M for manual input: ")       # Mode Selector
-while mode not in "SM":
-    mode = input("type S for sample or M for manual input: ")
+mode = input("[S]ample or [M]anual Input: ")       # Mode Selector
+while mode not in "SMsm":
+    mode = input("[S]ample or [M]anual Input: ")
 
 timescale = input("[M]onthly or [A]nnual Report: ")        # Annual/Monthly Selector
-while timescale not in "AM":
+while timescale not in "AMam":
     timescale = input("[M]onthly or [A]nnual Report: ")
 
 if mode == "S":
@@ -70,7 +70,7 @@ for count in range(int(loan_time / 12)):
     balance -= p_payment
     
     print(f"{year:<10}{p_payment:<15,.2f}{i_payment:<15,.2f}{yearly_pmnt:<15,.2f}{balance:<15,.2f}")
-
+    
     if year % 10 == 0:      # introduce a line break every 10 years.
         print()
     else:

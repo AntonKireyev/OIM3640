@@ -23,20 +23,20 @@ text_split = text.replace(',', '').replace("'",'').split()
 total = 0
 max_length = 0
 long_word = []
-vowels = 'aeiouAEIOU'
+VOWELS = 'aeiouAEIOU'
 
 for word in text_split:
     total += len(word)
     if len(word) >= max_length:
         max_length = len(word)
         long_word.append(word)
-    if word[0] not in vowels and word[1] in vowels:
+    if word[0] not in VOWELS and word[1] in VOWELS:
         word =  word[1:] + ' ' + word[:1] + 'ay'
         print(word)
-    elif word[0] and word[1] not in vowels:
+    elif word[0] and word[1] not in VOWELS:
         word =  word[1:] + ' ' + word[:1] + 'ay'
         print(word)
-    elif word[0] in vowels:
+    elif word[0] in VOWELS:
         word = word + ' way'
         print(word)
     else:
