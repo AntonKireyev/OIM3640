@@ -44,7 +44,7 @@ plt.title("Title", fontsize = 16)
 plt.xlabel("N")
 plt.ylabel("Integer")
 plt.axis()
-plt.legend(loc = 2)
+plt.legend(loc = 2); 
 y_values = [0, 100, 200, 300, 400, 500]
-plt.yticks(y_values); 
+plt.yticks(y_values)
 plt.show()
