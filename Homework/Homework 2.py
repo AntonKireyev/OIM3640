@@ -32,6 +32,8 @@ timescale = input("[M]onthly or [A]nnual Report: ")        # Annual/Monthly Sele
 while timescale not in "AMam":
     timescale = input("[M]onthly or [A]nnual Report: ")
 
+# Sample/Manual Mode Selector
+
 if mode == "S":
     balance = 360000   # In Dollars
     loan_time = 360     # In Months
@@ -46,40 +48,44 @@ if mode == "M":
     int_percent = float(input("Annual Interest Rate: "))
     monthly_pmnt = float(input("Monthly Payment: "))
 
-# Logic / Conversions
-yearly_pmnt = monthly_pmnt * 12
-int_rate = int_percent / 100
-year_total = loan_time/12
+# Annual/Monthly Period Selector
+
+if timescale == "M":
+    int_rate = int_percent / 1200
+    time = loan_time
+    period_pmnt = monthly_pmnt
+
+if timescale == "A":
+    time = loan_time / 12
+    int_rate = int_percent / 100
+    period_pmnt = monthly_pmnt * 12
 
 # Payment Amounts
 header = f"{'Year':<10}{'Principal':<15}{'Interest':<15}{'Payment':<15}{'Remaining Balance':<15}"
 print(header)
 print(DIV)
 
-for count in range(int(loan_time / 12)):
-    year = count + 1      # count years
-   
+for period in range(int(time)+1):
     # Payments
-    i_payment = abs(npf.ipmt(int_rate, year, year_total, balance))
-    p_payment = yearly_pmnt - i_payment
-
+    i_payment = abs(npf.ipmt(int_rate, period, time, balance))
+    p_payment = period_pmnt - i_payment
     i_payments += i_payment
     p_payments += p_payment
 
+    if period % 10 == 0:      # introduce a line break every 10 years.
+        print()
+
+    if balance <= p_payment:
+        p_payment = balance
+        period_pmnt = p_payment + i_payment
+
     # Calculate Remaining balance
     balance -= p_payment
-    
-    print(f"{year:<10}{p_payment:<15,.2f}{i_payment:<15,.2f}{yearly_pmnt:<15,.2f}{balance:<15,.2f}")
-    
-    if year % 10 == 0:      # introduce a line break every 10 years.
-        print()
-    else:
-        pass
+    print(f"{period:<10}{p_payment:<15,.2f}{i_payment:<15,.2f}{period_pmnt:<15,.2f}{balance:<15,.2f}")
 
     if balance <= 0:
         break
-
 # Footer
-footer = f"{'Total:':<9}$ {i_payments:<13,.2f}$ {p_payments:<13,.2f}$ {i_payments + p_payments:<13,.2f}"
+footer = f"{'Total:':<9}$ {p_payments:<13,.2f}$ {i_payments:<13,.2f}$ {i_payments + p_payments:<13,.2f}"
 print(DIV)
 print(footer)
