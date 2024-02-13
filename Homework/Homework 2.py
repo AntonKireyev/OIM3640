@@ -25,11 +25,11 @@ DIV = "-" * 80
 # Sample / manual selector
 print("Welcome to the Loan Amortizer \n")
 mode = input("[S]ample or [M]anual Input: ")       # Mode Selector
-while mode not in "SMsm":
+while mode not in "SM":
     mode = input("[S]ample or [M]anual Input: ")
 
 timescale = input("[M]onthly or [A]nnual Report: ")        # Annual/Monthly Selector
-while timescale not in "AMam":
+while timescale not in "AM":
     timescale = input("[M]onthly or [A]nnual Report: ")
 
 # Sample/Manual Mode Selector
