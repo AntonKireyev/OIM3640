@@ -11,7 +11,9 @@ plot the list data as a line plot'''
 
 # Libraries
 import os
+import matplotlib
 import matplotlib.pyplot as plt
+import numpy as np
 import random as rand
 
 # Generate 500 random integers
@@ -40,11 +42,12 @@ print(data)
 # plot list data as a line plot
 
 plt.plot(data, label = 'Integers')
-plt.title("Title", fontsize = 16)
+plt.title("Increasing Integers", fontsize = 16)
 plt.xlabel("N")
 plt.ylabel("Integer")
 plt.axis()
+#y_values = [0, 100, 200, 300, 400, 500]
+#plt.yticks(y_values)
+#matplotlib.axes.set_yticks(np.arrange(0, 500.1, 500/5))
 plt.legend(loc = 2); 
-y_values = [0, 100, 200, 300, 400, 500]
-plt.yticks(y_values)
 plt.show()
