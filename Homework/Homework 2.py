@@ -12,11 +12,11 @@ DIV = "-" * 54
 print("Welcome to the Loan Amortizer \n Please enter S for sample report or C to enter new parameters")
 mode = input("[S]ample or [C]ustom Input: ")       # Mode Selector
 while mode not in "SCsc":
-    mode = input("[S]ample or [C]ustom Input: ")
+    mode = input("Error. Type [S] or [C]:  ")
 
 timescale = input("[M]onthly or [A]nnual Report: ")        # Annual/Monthly Selector
 while timescale not in "AMam":
-    timescale = input("[M]onthly or [A]nnual Report: ")
+    timescale = input("Error. Type [M] or [A]:  ")
 
 print(DIV)
 
@@ -31,7 +31,7 @@ if mode in "Ss":
 
 if mode in "Cc":
     balance = float(input("Balance: $"))
-    loan_time = float(input("Loan length in months: "))
+    loan_time = float(input("Loan length in years: ")*12)
     int_percent = float(input("Annual Interest Rate: "))
     monthly_pmnt = float(input("Monthly Payment: $"))
 
@@ -56,6 +56,7 @@ print(header)
 print(DIV)
 
 time = int(time)
+
 for period in (range(1, time)):
     # Payments
     i_payment = abs(npf.ipmt(int_rate, period, time, balance))
@@ -63,8 +64,13 @@ for period in (range(1, time)):
     i_total += i_payment
     p_total += p_payment
 
-    if period % 10 == 1 and period > 1:      # introduce a line break after every 10 years.
-        print()
+    if timescale in "Aa":
+        if period % 10 == 1 and period > 1:      # introduce a line break after every 10 years.
+            print()
+
+    if timescale in "Mm":
+        if period % 12 == 1:
+            print(f"{'-'*20}{'Year: '}{int((period/12)+1)}{'-'*20}")
 
     if balance <= p_payment:
         p_payment = balance
