@@ -29,13 +29,16 @@ if mode in "Ss":
     monthly_pmnt = npf.pmt(int_percent/1200, loan_time, -balance)   # Monthly payment in Dollars
 
 if mode in "Cc":
-    try:
-        balance = float(input("Loan Amount: $"))
-        while balance <= 0:
-            balance = float(input("Error! Please enter valid loan amount: "))
+    balance = input("Loan Amount: $")
+
+    while True:
+        if balance.isnumeric():
             break
-    except:
-        print("Invalid Input")
+        else:
+            balance = input("Error! Enter valid loan amount: $")
+    
+    balance = float(balance)
+
     loan_time = float(input("Loan length in years (between 10-40): "))
     while loan_time < 10 or loan_time > 40:
         loan_time = float(input("Error! Please enter a number of years between 10 and 40: "))
