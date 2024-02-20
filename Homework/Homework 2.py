@@ -1,8 +1,12 @@
-# Amortization Schedule Calculator
+'''Amortization Schedule Calculator
+
+
+
+'''
 
 # Libraries
-import numpy_financial as npf
 import math
+import numpy_financial as npf
 
 # Variables / Inputs
 i_total = list()
