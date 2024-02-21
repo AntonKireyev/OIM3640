@@ -9,7 +9,7 @@
 '''
 
 # LIbraries
-import os
+import matplotlib.pyplot as plt
 from operator import itemgetter
 
 # Read the data file into a variable.
@@ -19,12 +19,10 @@ f.close()
 
 # Clean and Tokenize contents into words.
 for character in text:
-    if character in  "'.,!?":
+    if character in  '".,!?':
         text = text.replace(character, '')
     if character  == "-":
         text = text.replace(character, ' ')
-    if character == '"':
-        text = text.replace(character, '')
     else: 
         pass
 text_split = text.lower().split()
@@ -38,9 +36,17 @@ for word in text_split:
         words[word] += 1
 
 # Output of each word and its associated count, sorted by most frquent word first
-for word in sorted(words.items(), key = itemgetter(1), reverse= True):
-    print(f"{word[0]:<20}{word[1]:>15}")
+unique_words = list()
+frequency = list()
+for item in sorted(words.items(), key = itemgetter(1), reverse= True):
+    if item[1] > 2:
+        unique_words.append(item[0])
+        frequency.append(item[1])
+        print(f"{item[0]:<20}{item[1]:>15}")
 
+plt.bar(unique_words[:5], frequency[:5])
+plt.winter()
+plt.show();
 # Output number of words in text file
 words_total = len(text_split)
 print(f"Number of words in text: {words_total}")
@@ -48,6 +54,7 @@ print(f"Number of words in text: {words_total}")
 # output number of unique words in text file
 unique = len(words)
 print(f"Number of unique words in text: {unique}")
+# OR USE A SET!!!!
 
 # Proportion of unique words in text
 proportion = unique/words_total
