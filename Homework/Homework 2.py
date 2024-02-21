@@ -1,6 +1,9 @@
 '''Amortization Schedule Calculator
 
-
+The Amortization schedule calculator takes multiple inputs from user and returns either a sample or custom schedule on either a monthly or Annual basis.
+First the program takes in user input, determines the type of schedule, then takes in custom input for the table if necessary.
+Next the program generates an amortization table based on the inputs provided.
+Lastly, the program tells the user the half-life of the loan (when principal is half paid).
 
 '''
 
