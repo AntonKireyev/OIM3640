@@ -111,8 +111,11 @@ print(footer)
 
 # Loan Half-Life calculator.
 principal_paid = 0
-for index in range(1, len(p_total)+1):
-    principal_paid += p_total[index]
+for period in range(1, len(p_total)+1):
+    principal_paid += p_total[period]
     if principal_paid >= math.ceil(balance/2):
-        print(f"\nThe principal is half paid off after {index:.0f} {time_desc.lower()+'s'}!")
+        if timescale in "Aa":
+            print(f"\nThe principal is half paid off after {period:.0f} {time_desc.lower()+'s'}!")
+        if timescale in "Mm":
+            print(f"\nThe principal is half paid off after {period:.0f} {time_desc.lower()+'s'} (About {period/12:.0f} Years)!")
         break
