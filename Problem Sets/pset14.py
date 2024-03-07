@@ -12,9 +12,7 @@ the function should test for the existence of the watchlist directory first (per
 it should then read files in the directory with the extension .watchlist and display them as a list, 
 each one with a number to the left of it:
       1 - default
-
       2 - tech 
-
 ... and so on
 
 Part II
@@ -25,23 +23,35 @@ you should probably make a couple of files to test everything on
 save your work in a script file and upload the file. You do not need to upload any watchlist file
  '''
 
-
-# Part 1
 import os
-# get the files
+
+# part 1
 
 def read_directory(): 
-      if not os.path.exists('watchlists'):
+      if not os.path.exists('watchlists'):            # test for existence of folder
             print("No watchlist directory, creating")
             os.mkdir("watchlists")
 
       watchlists = os.listdir('watchlists')           # returns list with names of files
 
       count = 1
-      for watchlist in watchlists:        # Print numbered list of files.
+      for watchlist in watchlists:                    # Print numbered list of files.
             watchlist = watchlist[0:-4]
             print(f'{count} - {watchlist}')
             count += 1
 
-read_directory()
 
+# part 2
+def choose_watchlist():
+      choice = input("Pick a watchlist, type the number: ")
+      watchlists = os.listdir('watchlists')           # returns list with names of files
+      watchlist = [watchlist for watchlist in watchlists]
+      
+      f = open(f'watchlists/{watchlist[int(choice)-1]}', "r")
+      watchlist_data = f.read()
+      f.close()
+      print(watchlist_data)
+
+
+read_directory()
+choose_watchlist()
