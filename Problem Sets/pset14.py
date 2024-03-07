@@ -24,3 +24,24 @@ the result of this function should be a printed list for now
 you should probably make a couple of files to test everything on
 save your work in a script file and upload the file. You do not need to upload any watchlist file
  '''
+
+
+# Part 1
+import os
+# get the files
+
+def read_directory(): 
+      if not os.path.exists('watchlists'):
+            print("No watchlist directory, creating")
+            os.mkdir("watchlists")
+
+      watchlists = os.listdir('watchlists')           # returns list with names of files
+
+      count = 1
+      for watchlist in watchlists:        # Print numbered list of files.
+            watchlist = watchlist[0:-4]
+            print(f'{count} - {watchlist}')
+            count += 1
+
+read_directory()
+
