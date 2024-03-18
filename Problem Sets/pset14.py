@@ -31,27 +31,27 @@ def read_directory():
       if not os.path.exists('watchlists'):            # test for existence of folder
             print("No watchlist directory, creating")
             os.mkdir("watchlists")
-
-      watchlists = os.listdir('watchlists')           # returns list with names of files
-
-      count = 1
-      for watchlist in watchlists:                    # Print numbered list of files.
-            watchlist = watchlist[0:-4]
-            print(f'{count} - {watchlist}')
-            count += 1
-
+      else:
+            watchlists = os.listdir('watchlists')                        # returns list with names of files
+            if not watchlists:
+                  print("No saved list")
+            else:
+                  for count, watchlist in enumerate(watchlists, 1):                    # Print numbered list of files.
+                        watchlist = watchlist[:-4]
+                        print(f'{count}.  {watchlist}')
+                  return watchlists
+            
 
 # part 2
-def choose_watchlist():
-      choice = input("Pick a watchlist, type the number: ")
-      watchlists = os.listdir('watchlists')           # returns list with names of files
-      watchlist = [watchlist for watchlist in watchlists]
+def choose_list():
+      lists = read_directory()
+      choice = int(input("Pick a watchlist, type the number: "))
+      watchlist = lists[choice-1]
       
-      f = open(f'watchlists/{watchlist[int(choice)-1]}', "r")
-      watchlist_data = f.read()
+      f = open(f'watchlists/{watchlist}', "r")
+      watchlist_data = f.read().split()
       f.close()
-      print(watchlist_data)
+      return watchlist_data
 
 
-read_directory()
-choose_watchlist()
+choose_list()
