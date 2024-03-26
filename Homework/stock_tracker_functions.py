@@ -24,17 +24,35 @@ def track(watchlist):
                 if prompt:
                     break
 
+
+
 # Choose Watchlist
                 
 '''
 1. 
 '''
-def read_directory():
-    if not os.path.exists('watchlists'):
-        print("No watchlist directory, creating")
-        os.mkdir("watchlists")
-    
+def read_directory(): 
+      if not os.path.exists('watchlists'):            # test for existence of folder
+            print("No watchlist directory, creating")
+            os.mkdir("watchlists")
+      else:
+            watchlists = os.listdir('watchlists')                        # returns list with names of files
+            if not watchlists:
+                  print("No saved list")
+            else:
+                  for count, watchlist in enumerate(watchlists, 1):                    # Print numbered list of files.
+                        watchlist = watchlist[:-4]
+                        print(f'{count}.  {watchlist}')
+                  return watchlists
+def choose_list():
+      lists = read_directory()
+      choice = int(input("Pick a watchlist, type the number: "))
+      watchlist = lists[choice-1]
+      
+      f = open(f'watchlists/{watchlist}', "r")
+      watchlist_data = f.read().split()
+      f.close()
+      return watchlist_data
 
-    print(os.listdir('watchlists'))
 
-read_directory()
+
