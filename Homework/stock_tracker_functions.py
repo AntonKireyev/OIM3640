@@ -75,7 +75,16 @@ def choose_list():
 '''
 
 def add_watchlist():
-     pass   # TODO
+     
+     # show existing watchlists
+      lists = read_directory()
+      print(lists)
+     # prompt user to create and name a new file
+
+     # prompt user to populate the new file with stocks
+     # perhaps use a while-loop to keep requesting new entries
+
+     # idk maybe do something else? display compeleted list?
 
 
 # Edit Watchlists
@@ -89,3 +98,6 @@ def edit_watchlist():
 
 def del_watchlist():
      pass   # TODO
+
+
+add_watchlist()
